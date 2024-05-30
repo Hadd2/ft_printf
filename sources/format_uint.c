@@ -1,0 +1,116 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   format_uint.c                                      :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: habernar <habernar@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/05/27 17:59:22 by habernar          #+#    #+#             */
+/*   Updated: 2024/05/30 21:30:03 by habernar         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+#include "format_uint.h"
+#include "numbers.h"
+#include "utils.h"
+
+static unsigned int	get_size(t_token *token, char *p, unsigned int u)
+{
+	unsigned int	len;
+
+	len = ft_strlen(p);
+	if (token->precision && token->num_precision > len)
+		len = token->num_precision;
+	if (token->prefix && !(token->type == TYPE_UINT) && u == 0)
+		len += 2;
+	if (token->width > len)
+		len = token->width;
+	if (token->num_precision == 0 && token->precision
+		&& u == 0 && token->width == 0)
+		len = 0;
+	return (len);
+}
+
+static void	left_fill_uint(t_token *token, char *p, unsigned int size)
+{
+	unsigned int	len;
+
+	len = ft_strlen(p);
+	if (token->prefix && token->type != TYPE_UINT && *p != '0')
+	{
+		if (token->type == TYPE_LOHEX)
+			ft_putnstr(token, PREFIXLOHEX, SIZEPREFIX);
+		if (token->type == TYPE_UPHEX)
+			ft_putnstr(token, PREFIXUPHEX, SIZEPREFIX);
+	}
+	if (token->precision && token->num_precision > len)
+	{
+		ft_putnchar(token, '0', token->num_precision - len);
+	}
+	ft_putnstr(token, p, len);
+	ft_putnchar(token, ' ', size - max(token->num_precision, len));
+	if (token->prefix && token->type != TYPE_UINT)
+		ft_putnchar(token, ' ', SIZEPREFIX);
+}
+
+static void	handle_zero_pad(t_token *token, char *p, unsigned int size)
+{
+	unsigned int	len;
+
+	len = ft_strlen(p);
+	if (token->prefix && token->type != TYPE_UINT)
+	{
+		if (token->type == TYPE_LOHEX)
+			ft_putnstr(token, PREFIXLOHEX, SIZEPREFIX);
+		if (token->type == TYPE_UPHEX)
+			ft_putnstr(token, PREFIXUPHEX, SIZEPREFIX);
+		ft_putnchar(token, '0', size - SIZEPREFIX - len);
+	}
+	else
+		ft_putnchar(token, '0', size - len);
+}
+
+static void	right_fill_uint(t_token *token, char *p, unsigned int size)
+{
+	unsigned int	len;
+
+	len = ft_strlen(p);
+	if (token->zero_pad && !token->precision)
+		handle_zero_pad(token, p, size);
+	else
+	{
+		if (token->width)
+			ft_putnchar(token, ' ', size - max(token->num_precision, len));
+		if (token->prefix && token->type != TYPE_UINT && *p != '0')
+		{
+			if (token->type == TYPE_LOHEX)
+				ft_putnstr(token, PREFIXLOHEX, SIZEPREFIX);
+			if (token->type == TYPE_UPHEX)
+				ft_putnstr(token, PREFIXUPHEX, SIZEPREFIX);
+		}
+		if (token->precision && token->num_precision > len)
+			ft_putnchar(token, '0', token->num_precision - len);
+	}
+	ft_putnstr(token, p, len);
+}
+
+void	fill_format_uint(t_token *token, unsigned int u)
+{
+	char			*p;
+	unsigned int	size;
+
+	p = ft_itoa_unknown_base(token, u);
+	if (p)
+	{
+		size = get_size(token, p, u);
+		if (token->num_precision == 0 && token->precision && u == 0)
+		{
+			ft_putnchar(token, ' ', size);
+			return (free(p));
+		}
+		if (token->left)
+			left_fill_uint(token, p, size);
+		else
+			right_fill_uint(token, p, size);
+		free(p);
+	}
+}
