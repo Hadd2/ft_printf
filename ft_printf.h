@@ -6,7 +6,7 @@
 /*   By: habernar <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/24 16:12:06 by habernar          #+#    #+#             */
-/*   Updated: 2024/05/30 20:57:46 by habernar         ###   ########.fr       */
+/*   Updated: 2024/05/30 22:57:29 by habernar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,8 @@
 # define BASE_LOHEX "0123456789abcdef"
 # define BASE_UPHEX "0123456789ABCDEF"
 # define BASE_DECI "0123456789"
+# define STR_NULL "(null)"
+# define ADDR_NIL "(nil)"
 
 typedef enum e_type
 {

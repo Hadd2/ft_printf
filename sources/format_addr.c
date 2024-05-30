@@ -6,7 +6,7 @@
 /*   By: habernar <habernar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/27 18:02:53 by habernar          #+#    #+#             */
-/*   Updated: 2024/05/30 22:54:43 by habernar         ###   ########.fr       */
+/*   Updated: 2024/05/30 22:58:57 by habernar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,13 +39,13 @@ static void	handle_nil_addr(t_token *token)
 	unsigned int	len;
 	unsigned int	size;
 
-	len = ft_strlen("(nil)");
+	len = ft_strlen(ADDR_NIL);
 	size = len;
 	if (len < token->width)
 		size = token->width;
 	if (!token->left)
 		ft_putnchar(token, ' ', size - len);
-	ft_putnstr(token, "(nil)", len);
+	ft_putnstr(token, ADDR_NIL, len);
 	if (token->left)
 		ft_putnchar(token, ' ', size - len);
 }
