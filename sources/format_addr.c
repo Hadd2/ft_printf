@@ -6,7 +6,7 @@
 /*   By: habernar <habernar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/27 18:02:53 by habernar          #+#    #+#             */
-/*   Updated: 2024/05/30 21:28:59 by habernar         ###   ########.fr       */
+/*   Updated: 2024/05/30 22:54:43 by habernar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,9 +19,9 @@ static void	left_fill_addr(t_token *token, char *p, unsigned int size)
 	unsigned int	len;
 
 	len = ft_strlen(p);
-	ft_putnstr(token, "0x", 2);
+	ft_putnstr(token, PREFIXLOHEX, SIZEPREFIX);
 	ft_putnstr(token, p, len);
-	ft_putnchar(token, ' ', size - len - 2);
+	ft_putnchar(token, ' ', size - len - SIZEPREFIX);
 }
 
 static void	right_fill_addr(t_token *token, char *p, unsigned int size)
@@ -29,8 +29,8 @@ static void	right_fill_addr(t_token *token, char *p, unsigned int size)
 	unsigned int	len;
 
 	len = ft_strlen(p);
-	ft_putnchar(token, ' ', size - len - 2);
-	ft_putnstr(token, "0x", 2);
+	ft_putnchar(token, ' ', size - len - SIZEPREFIX);
+	ft_putnstr(token, PREFIXLOHEX, SIZEPREFIX);
 	ft_putnstr(token, p, ft_strlen(p));
 }
 
