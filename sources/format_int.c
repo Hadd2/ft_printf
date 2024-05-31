@@ -6,7 +6,7 @@
 /*   By: habernar <habernar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/27 18:00:59 by habernar          #+#    #+#             */
-/*   Updated: 2024/05/30 21:27:54 by habernar         ###   ########.fr       */
+/*   Updated: 2024/05/31 16:42:18 by habernar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -93,28 +93,23 @@ static void	right_fill_int(t_token *token, char *p, int d, unsigned int size)
 
 void	fill_format_int(t_token *token, int d)
 {
-	char			*c;
 	char			*p;
 	unsigned int	size;
 
-	c = ft_itoa(d);
-	if (c)
+	p = ft_itoa(d);
+	if (!p)
+		return ;
+	if (*p == '-')
+		ft_memmove(p, p + 1, ft_strlen(p));
+	size = get_size(token, p, d);
+	if (token->num_precision == 0 && token->precision && d == 0)
 	{
-		p = ft_strtrim(c, "-");
-		free(c);
+		ft_putnchar(token, ' ', size);
+		return (free(p));
 	}
-	if (p)
-	{
-		size = get_size(token, p, d);
-		if (token->num_precision == 0 && token->precision && d == 0)
-		{
-			ft_putnchar(token, ' ', size);
-			return (free(p));
-		}
-		if (token->left)
-			left_fill_int(token, p, d, size);
-		else
-			right_fill_int(token, p, d, size);
-		free(p);
-	}
+	if (token->left)
+		left_fill_int(token, p, d, size);
+	else
+		right_fill_int(token, p, d, size);
+	free(p);
 }

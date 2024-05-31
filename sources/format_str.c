@@ -6,7 +6,7 @@
 /*   By: habernar <habernar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/29 23:07:17 by habernar          #+#    #+#             */
-/*   Updated: 2024/05/30 22:59:47 by habernar         ###   ########.fr       */
+/*   Updated: 2024/05/31 16:40:19 by habernar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,32 +34,24 @@ static unsigned int	get_size(t_token *token, unsigned int len)
 	return (len);
 }
 
-static void	handle_null_ptr(t_token *token)
+void	fill_format_str(t_token *token, char *str)
 {
 	unsigned int	len;
 	unsigned int	size;
-
-	len = get_len(token, STR_NULL);
-	size = get_size(token, len);
-	if (!token->left)
-		ft_putnchar(token, ' ', size - len);
-	ft_putnstr(token, STR_NULL, len);
-	if (token->left)
-		ft_putnchar(token, ' ', size - len);
-}
-
-void	fill_format_str(t_token *token, char *str)
-{
-	size_t	size;
-	size_t	len;
+	char			*p;
 
 	if (!str)
-		return (handle_null_ptr(token));
-	len = get_len(token, str);
+		p = ft_strdup(STR_NULL);
+	else
+		p = ft_strdup(str);
+	if (!p)
+		return ;
+	len = get_len(token, p);
 	size = get_size(token, len);
 	if (!token->left)
 		ft_putnchar(token, ' ', size - len);
-	ft_putnstr(token, str, len);
+	ft_putnstr(token, p, len);
 	if (token->left)
 		ft_putnchar(token, ' ', size - len);
+	free(p);
 }
