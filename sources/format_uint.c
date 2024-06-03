@@ -6,7 +6,7 @@
 /*   By: habernar <habernar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/27 17:59:22 by habernar          #+#    #+#             */
-/*   Updated: 2024/05/31 17:07:53 by habernar         ###   ########.fr       */
+/*   Updated: 2024/06/03 19:46:09 by habernar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "format_uint.h"
@@ -83,9 +83,9 @@ static void	right_fill_uint(t_token *token, char *p, unsigned int size)
 		handle_zero_pad(token, p, size);
 	else
 	{
-		if (token->width > len + SIZEPREFIX && token->type != TYPE_UINT)
+		if (token->width > len + SIZEPREFIX && token->prefix)
 			ft_putnchar(token, ' ', size - max_num_len - SIZEPREFIX);
-		else if (token->width > len && token->type == TYPE_UINT)
+		else if (token->width > len)
 			ft_putnchar(token, ' ', size - max_num_len);
 		if (token->prefix && token->type != TYPE_UINT && *p != '0')
 		{
