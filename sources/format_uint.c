@@ -6,7 +6,7 @@
 /*   By: habernar <habernar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/27 17:59:22 by habernar          #+#    #+#             */
-/*   Updated: 2024/06/03 19:46:09 by habernar         ###   ########.fr       */
+/*   Updated: 2024/06/07 00:32:57 by habernar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "format_uint.h"
@@ -20,7 +20,7 @@ static unsigned int	get_size(t_token *token, char *p, unsigned int u)
 	len = ft_strlen(p);
 	if (token->precision && token->num_precision > len)
 		len = token->num_precision;
-	if (token->prefix && !(token->type == TYPE_UINT) && u == 0)
+	if (token->prefix && !(token->type == TYPE_UINT))
 		len += 2;
 	if (token->width > len)
 		len = token->width;

@@ -6,7 +6,7 @@
 /*   By: habernar <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/24 16:18:12 by habernar          #+#    #+#             */
-/*   Updated: 2024/05/30 22:00:27 by habernar         ###   ########.fr       */
+/*   Updated: 2024/06/06 23:39:28 by habernar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,8 @@ int	ft_printf(const char *buffer, ...)
 	t_token	token;
 
 	count = 0;
+	if (!buffer)
+		return (-1);
 	va_start(params, buffer);
 	while (*buffer)
 	{
