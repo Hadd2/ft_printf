@@ -6,11 +6,11 @@
 /*   By: habernar <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/24 16:28:11 by habernar          #+#    #+#             */
-/*   Updated: 2024/05/30 19:17:31 by habernar         ###   ########.fr       */
+/*   Updated: 2024/06/13 21:51:55 by habernar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "token.h"
+#include "../ft_printf.h"
 
 void	reset_token(t_token *token)
 {

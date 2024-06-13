@@ -6,12 +6,11 @@
 /*   By: habernar <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/24 16:19:49 by habernar          #+#    #+#             */
-/*   Updated: 2024/05/27 20:59:44 by habernar         ###   ########.fr       */
+/*   Updated: 2024/06/13 21:51:49 by habernar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "scanner.h"
-#include "token.h"
+#include "../ft_printf.h"
 
 static void	scan_flags(t_token *token, const char **buf)
 {

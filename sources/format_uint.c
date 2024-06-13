@@ -6,12 +6,11 @@
 /*   By: habernar <habernar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/27 17:59:22 by habernar          #+#    #+#             */
-/*   Updated: 2024/06/07 20:56:16 by habernar         ###   ########.fr       */
+/*   Updated: 2024/06/13 21:51:16 by habernar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-#include "format_uint.h"
-#include "numbers.h"
-#include "utils.h"
+
+#include "../ft_printf.h"
 
 static unsigned int	get_size(t_token *token, char *p, unsigned int u)
 {

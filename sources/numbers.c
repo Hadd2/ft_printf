@@ -6,11 +6,11 @@
 /*   By: habernar <habernar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/26 00:18:35 by habernar          #+#    #+#             */
-/*   Updated: 2024/05/30 21:13:14 by habernar         ###   ########.fr       */
+/*   Updated: 2024/06/13 21:51:33 by habernar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "numbers.h"
+#include "../ft_printf.h"
 
 static unsigned int	bytes_needed(uint64_t u, unsigned int len_base)
 {

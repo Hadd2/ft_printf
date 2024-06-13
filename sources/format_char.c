@@ -6,12 +6,15 @@
 /*   By: habernar <habernar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/27 17:55:01 by habernar          #+#    #+#             */
-/*   Updated: 2024/05/30 22:02:37 by habernar         ###   ########.fr       */
+/*   Updated: 2024/06/13 21:40:25 by habernar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+/*
 #include "format_char.h"
 #include "utils.h"
+*/
+#include "../ft_printf.h"
 
 void	fill_format_char(t_token *token, int c)
 {

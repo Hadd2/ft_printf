@@ -6,16 +6,11 @@
 /*   By: habernar <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/24 16:33:40 by habernar          #+#    #+#             */
-/*   Updated: 2024/05/30 00:46:08 by habernar         ###   ########.fr       */
+/*   Updated: 2024/06/13 21:51:42 by habernar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "parser.h"
-#include "format_addr.h"
-#include "format_int.h"
-#include "format_str.h"
-#include "format_char.h"
-#include "format_uint.h"
+#include "../ft_printf.h"
 
 void	parse_token(t_token *token, va_list params)
 {

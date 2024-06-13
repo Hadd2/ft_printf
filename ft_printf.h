@@ -6,7 +6,7 @@
 /*   By: habernar <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/24 16:12:06 by habernar          #+#    #+#             */
-/*   Updated: 2024/05/30 22:57:29 by habernar         ###   ########.fr       */
+/*   Updated: 2024/06/13 21:55:51 by habernar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,6 +58,20 @@ typedef struct s_token
 	t_type			type;
 }	t_token;
 
-int	ft_printf(const char *buffer, ...);
+int		ft_printf(const char *buffer, ...);
+int		is_flags(char c);
+int		is_valid_type(char c);
+int		max(unsigned int a, unsigned int b);
+void	reset_token(t_token *token);
+void	scan_token(t_token *token, const char **buf);
+void	parse_token(t_token *token, va_list params);
+void	fill_format_uint(t_token *token, unsigned int u);
+void	fill_format_str(t_token *token, char *str);
+void	fill_format_int(t_token *token, int d);
+void	fill_format_char(t_token *token, int c);
+void	fill_format_addr(t_token *token, void *addr);
+void	ft_putnstr(t_token *token, const char *str, unsigned int len);
+void	ft_putnchar(t_token *token, char c, unsigned int n);
+char	*ft_itoa_unknown_base(t_token *token, uint64_t num);
 
 #endif

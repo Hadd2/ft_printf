@@ -6,13 +6,11 @@
 /*   By: habernar <habernar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/27 18:02:53 by habernar          #+#    #+#             */
-/*   Updated: 2024/05/31 16:39:59 by habernar         ###   ########.fr       */
+/*   Updated: 2024/06/13 21:50:57 by habernar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "format_addr.h"
-#include "numbers.h"
-#include "utils.h"
+#include "../ft_printf.h"
 
 static void	handle_nil_addr(t_token *token)
 {

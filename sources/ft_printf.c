@@ -6,14 +6,11 @@
 /*   By: habernar <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/24 16:18:12 by habernar          #+#    #+#             */
-/*   Updated: 2024/06/06 23:39:28 by habernar         ###   ########.fr       */
+/*   Updated: 2024/06/13 21:51:23 by habernar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../ft_printf.h"
-#include "scanner.h"
-#include "token.h"
-#include "parser.h"
 
 int	ft_printf(const char *buffer, ...)
 {
